@@ -36,9 +36,9 @@ public class DK_DataAnalysis
 	/*	System.out.println(Arrays.toString(searchContinuityAboveValue( 0, 0, 1277, -1, 1)));
 		System.out.println(Arrays.toString(backSearchContinuityWithinRange( 0, 200, 0, 400, 20000, 5)));
 		System.out.println(Arrays.toString(searchContinuityAboveValueTwoSignals(0, 3, 50, 100, 80000, -.5, 4)));
-		System.out.println(Arrays.toString(searchMultiContinuityWithinRange(0, 5, 100, 10000, 68000, 5)));
-		These were used to test the data structure and implementation of the methods.
-	*/
+	*/	System.out.println(Arrays.toString(searchMultiContinuityWithinRange(0, 5, 100, 10000, 68000, 5)));
+	//	These were used to test the data structure and implementation of the methods.
+	
 	}
 	// For the following methods, the return type is an array of integers, which represent the index or indicies of data pieces that satisfy the criteria
 	public static int[] searchContinuityAboveValue(int data, int indexBegin, int indexEnd, double threshold, int winLength) //The data value being inputted is the column number. The row value iterates through the column.
@@ -96,7 +96,7 @@ public class DK_DataAnalysis
 	}
 	public static int[] searchMultiContinuityWithinRange(int data, int indexBegin, int indexEnd, double thresholdLo, double thresholdHi, int winLength)
 	{
-		int[] indicies = new int[winLength+1];
+		int[] indicies = new int[winLength];
 		int count = 0;
 		int row = indexBegin;
 			while(count <= winLength && row <= indexEnd)
@@ -105,6 +105,9 @@ public class DK_DataAnalysis
 				{
 					indicies[count] = row+1;
 					count++;
+					
+					if (count == winLength)
+						break;
 				}
 				row++;
 			}
