@@ -99,15 +99,13 @@ public class DK_DataAnalysis
 		int[] indicies = new int[winLength];
 		int count = 0;
 		int row = indexBegin;
-			while(count <= winLength && row <= indexEnd)
+			while(count < winLength && row <= indexEnd)
 			{
 				if (swingData[row][data] > thresholdLo && swingData[row][data] < thresholdHi)
 				{
 					indicies[count] = row+1;
 					count++;
 					
-					if (count == winLength)
-						break;
 				}
 				row++;
 			}
